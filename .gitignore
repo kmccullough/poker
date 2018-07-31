@@ -1,0 +1,12 @@
+# Packaged Dependencies
+/node_modules
+
+# Generated code
+/dist
+/test/dist
+
+# Cache
+/.rpt2_cache
+
+# Log & Analysis
+*.log

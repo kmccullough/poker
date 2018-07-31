@@ -1,0 +1,27 @@
+{
+  "name": "poker",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "tslint -p tsconfig.json \"src/**/*.ts\"",
+    "watch": "rollup -cw",
+    "test": "rollup -c",
+    "test:run": "karma start"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.8.8",
+    "jasmine": "^3.1.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.4",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "rollup": "^0.57.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-execute": "^1.0.0",
+    "rollup-plugin-multi-entry": "^2.0.2",
+    "rollup-plugin-typescript2": "^0.12.0",
+    "source-map": "~0.6.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.3"
+  }
+}
