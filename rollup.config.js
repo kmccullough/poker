@@ -13,11 +13,14 @@ export default {
     format: "iife",
     sourcemap: true
   },
-
+  watch: {
+    chokidar: false
+  },
   plugins: [
     multiEntry(),
     clear({ targets: ["test/dist"] }),
     typescript({tsconfig: "./tsconfig.json"}),
-    execute('npm run test:run')
+    // For some reason output is getting eaten by rollup
+    execute('karma start')
   ]
 }
