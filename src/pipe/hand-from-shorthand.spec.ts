@@ -1,6 +1,6 @@
-import { Card, Suit, Value } from '@src/model/card';
-import { HandFromShorthand } from '@src/pipe/hand-from-shorthand';
-import { Hand } from '@src/model/hand';
+import { Card, Suit, Value } from '@model/card';
+import { Hand } from '@model/hand';
+import { HandFromShorthand } from '@pipe/hand-from-shorthand';
 
 describe('HandFromShorthand pipe', () => {
 

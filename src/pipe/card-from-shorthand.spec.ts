@@ -1,5 +1,5 @@
-import { Card, Suit, Value } from '@src/model/card';
-import { CardFromShorthand } from '@src/pipe/card-from-shorthand';
+import { Card, Suit, Value } from '@model/card';
+import { CardFromShorthand } from '@pipe/card-from-shorthand';
 
 describe('CardFromShorthand pipe', () => {
 

@@ -13,6 +13,9 @@
     "allowUnreachableCode": false,
     "paths": {
       "@assets/*": ["../assets/*"],
+      "@model/*": ["./model/*"],
+      "@pipe/*": ["./pipe/*"],
+      "@service/*": ["./service/*"],
       "@src/*": ["./*"]
     }
   },

@@ -1,4 +1,4 @@
-import { Card } from '@src/model/card';
+import { Card } from '@model/card';
 
 export class Hand {
   constructor(

@@ -1,7 +1,7 @@
-import { Card, Suit, Value } from '@src/model/card';
-import { Hand } from '@src/model/hand';
-import { Round } from '@src/model/round';
-import { RoundFromShorthand } from '@src/pipe/round-from-shorthand';
+import { Card, Suit, Value } from '@model/card';
+import { Hand } from '@model/hand';
+import { Round } from '@model/round';
+import { RoundFromShorthand } from '@pipe/round-from-shorthand';
 
 describe('RoundFromShorthand pipe', () => {
 

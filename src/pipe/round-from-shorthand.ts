@@ -1,8 +1,8 @@
-import { Card } from '@src/model/card';
-import { Hand } from '@src/model/hand';
-import { Round } from '@src/model/round';
-import { CardFromShorthand } from '@src/pipe/card-from-shorthand';
-import { Pipe } from '@src/pipe/pipe';
+import { Card } from '@model/card';
+import { Hand } from '@model/hand';
+import { Round } from '@model/round';
+import { CardFromShorthand } from '@pipe/card-from-shorthand';
+import { Pipe } from '@pipe/pipe';
 
 const cardFromShorthand = new CardFromShorthand();
 

@@ -1,6 +1,6 @@
-import { Card, Suit, Value } from '@src/model/card';
-import { matchShorthandSuitPartial, matchShorthandValuePartial, Shorthand } from '@src/model/card-shorthand';
-import { Pipe } from '@src/pipe/pipe';
+import { Card, Suit, Value } from '@model/card';
+import { matchShorthandSuitPartial, matchShorthandValuePartial, Shorthand } from '@model/card-shorthand';
+import { Pipe } from '@pipe/pipe';
 
 /* tslint:disable:object-literal-sort-keys */
 const values: { [key: string]: (v: string) => Value } = {

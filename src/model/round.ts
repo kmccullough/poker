@@ -1,4 +1,4 @@
-import { Hand } from '@src/model/hand';
+import { Hand } from '@model/hand';
 
 export class Round {
   constructor(
