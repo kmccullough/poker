@@ -1,7 +1,7 @@
 import { Card } from '@model/card';
 import { Hand } from '@model/hand';
 import { SortedHand } from '@model/sorted-hand';
-import { CardSorter } from '@service/rank/sort/card-sorter';
+import { CardSorter } from '@service/sort/card-sorter';
 
 export type HighCardSortableHand = HighCardSortedHand | SortedHand | Hand | Card[];
 

@@ -1,7 +1,7 @@
 import { Card } from '@model/card';
-import { Sorter } from '@service/rank/sort/sorter';
-import { SuitSorter } from '@service/rank/sort/suit-sorter';
-import { ValueSorter } from '@service/rank/sort/value-sorter';
+import { Sorter } from '@service/sort/sorter';
+import { SuitSorter } from '@service/sort/suit-sorter';
+import { ValueSorter } from '@service/sort/value-sorter';
 
 export interface CardSorter extends Sorter {
   sort(a: Card, b: Card): number;

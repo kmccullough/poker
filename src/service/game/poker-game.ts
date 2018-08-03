@@ -4,15 +4,16 @@ import { RankedHandConstructor } from '@model/rank/ranks';
 import { SortableHand, SortedHand } from '@model/sorted-hand';
 import { HandPredicate } from '@service/game/hand-predicate';
 import { RankPredicate, RankPredicateConstructor } from '@service/rank/predicate/predicates';
-import { CardSorter } from '@service/rank/sort/card-sorter';
-import { HandSorter } from '@service/rank/sort/hand-sorter';
+import { CardSorter } from '@service/sort/card-sorter';
+import { HandSorter } from '@service/sort/hand-sorter';
+import { Sorter } from '@service/sort/sorter';
 
 export type RankConfig = [
   RankPredicateConstructor,
   RankedHandConstructor
 ];
 
-export abstract class PokerGame implements HandPredicate {
+export abstract class PokerGame implements HandPredicate, Sorter {
   // Predicates to test, in order
   protected predicates: RankPredicate[] = [];
   // Map from Object.getPrototypeOf(predicate) to appropriate ranked hand
@@ -72,6 +73,12 @@ export abstract class PokerGame implements HandPredicate {
       return !max || hands.length < max;
     });
     return hands.slice(0, max || hands.length);
+  }
+
+  sort(a: SortableHand | FullHand, b: SortableHand | FullHand): number {
+    a = a instanceof FullHand ? a : this.find(a, 1)[0];
+    b = b instanceof FullHand ? b : this.find(b, 1)[0];
+    return this.handSorter.sort(a, b);
   }
 
 }

@@ -1,6 +1,6 @@
 import * as Rank from '@model/rank/ranks';
 import { PokerGame } from '@service/game/poker-game';
-import * as RankPredicate from '../rank/predicate/predicates';
+import * as RankPredicate from '@service/rank/predicate/predicates';
 
 export class FiveCardPoker extends PokerGame {
 

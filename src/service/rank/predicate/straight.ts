@@ -1,7 +1,7 @@
 import { Card, Value } from '@model/card';
 import { SortableHand, SortedHand } from '@model/sorted-hand';
 import { RankPredicate } from '@service/rank/predicate/rank-predicate';
-import { valueIndex } from '@service/rank/sort/value-sorter';
+import { valueIndex } from '@service/sort/value-sorter';
 
 export class Straight implements RankPredicate {
 

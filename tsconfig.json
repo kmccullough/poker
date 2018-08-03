@@ -5,7 +5,7 @@
     "lib": ["es5", "es6", "dom"],
     "moduleResolution": "Node",
     "outDir": "dist",
-    "baseUrl": "src/",
+    "baseUrl": "./",
     "sourceMap": true,
     "strict": true,
     "experimentalDecorators": true,
@@ -13,11 +13,11 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "paths": {
-      "@assets/*": ["../assets/*"],
-      "@model/*": ["./model/*"],
-      "@pipe/*": ["./pipe/*"],
-      "@service/*": ["./service/*"],
-      "@src/*": ["./*"]
+      "@assets/*": ["./assets/*"],
+      "@model/*": ["./src/model/*"],
+      "@pipe/*": ["./src/pipe/*"],
+      "@service/*": ["./src/service/*"],
+      "@src/*": ["./src/*"]
     }
   },
   "exclude": [
