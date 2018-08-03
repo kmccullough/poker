@@ -1,8 +1,15 @@
 import { Card, Value } from '@model/card';
 import { SortableHand, SortedHand } from '@model/sorted-hand';
 import { RankPredicate } from '@service/rank/predicate/rank-predicate';
+import { ValueSorter } from '@service/rank/sort/value-sorter';
 
 export class Flush implements RankPredicate {
+
+  constructor(
+    protected valueSorter: ValueSorter = new ValueSorter(),
+  ) {
+
+  }
 
   is(hand: SortableHand): boolean {
     return this.find(hand, 1).length > 0;
@@ -22,7 +29,7 @@ export class Flush implements RankPredicate {
       .filter(k => suits[k].cards.length >= 5)
       .map(k => suits[k])
       .sort((a, b) =>
-        SortedHand.sortCardValues(a.highCard, b.highCard)
+        this.valueSorter.sort(a.highCard, b.highCard)
       )
       .slice(0, max || 4)
       .map(h => new SortedHand(h.cards));

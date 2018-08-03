@@ -1,21 +1,6 @@
-import { Card, Suit, Value } from '@model/card';
+import { Card } from '@model/card';
 import { Hand } from '@model/hand';
-
-export const valueSortIndex: { [key: string]: number } = {
-  // 2...9
-  [Value.Ten]:   10,
-  [Value.Jack]:  11,
-  [Value.Queen]: 12,
-  [Value.King]:  13,
-  [Value.Ace]:   14,
-};
-
-export const suitSortIndex: { [key: string]: number } = {
-  [Suit.Heart]:   0,
-  [Suit.Diamond]: 1,
-  [Suit.Club]:    2,
-  [Suit.Spade]:   3,
-};
+import { CardSorter } from '@service/rank/sort/card-sorter';
 
 export type SortableHand = SortedHand | Hand | Card[];
 
@@ -23,34 +8,6 @@ export type SortableHand = SortedHand | Hand | Card[];
  * Sorts hand on instantiation and assures sorting by type
  */
 export class SortedHand {
-
-  static sortCards(a: Card, b: Card): number {
-    return SortedHand.sortCardValues(a.value, b.value)
-      || SortedHand.sortCardSuits(
-        suitSortIndex[a.suit],
-        suitSortIndex[b.suit]
-      );
-  }
-
-  static sortCardValues(a: Value, b: Value): number {
-    const av = valueSortIndex[a] || a;
-    const bv = valueSortIndex[b] || b;
-    return av < bv ? -1 : av > bv ? 1 : 0;
-  }
-
-  static sortCardSuits(a: Suit, b: Suit): number {
-    const as = suitSortIndex[a];
-    const bs = suitSortIndex[b];
-    return as < bs ? -1 : as > bs ? 1 : 0;
-  }
-
-  static sort(hand: SortableHand): Hand {
-    if (hand instanceof SortedHand) {
-      return hand.hand;
-    }
-    const cards = hand instanceof Hand ? hand.cards : hand;
-    return new Hand(cards.slice().sort(SortedHand.sortCards));
-  }
 
   /**
    * Sorts a hand or returns already sorted hand
@@ -63,8 +20,16 @@ export class SortedHand {
 
   public readonly hand: Hand;
 
-  constructor(hand: SortableHand) {
-    this.hand = SortedHand.sort(hand);
+  constructor(
+    hand: SortableHand,
+    protected cardSorter: CardSorter = new CardSorter()
+  ) {
+    if (hand instanceof SortedHand) {
+      this.hand = hand.hand;
+    } else {
+      const cards = hand instanceof Hand ? hand.cards : hand;
+      this.hand = new Hand(cards.slice().sort(this.cardSorter.sort));
+    }
   }
 
 }

@@ -47,7 +47,7 @@ describe('Straight RankPredicate', () => {
       { input: '2H 5D AC 4S 3S' },
       { input: '2H 5D 6C 4S 3S' },
       { input: '2H 5H 6H 4H 3H' },
-      { input: '2C 3D 5D 4C 6S AS' },
+      { input: 'KC TD JD QS AS' },
     ].forEach(({ input }) => {
 
       it(`hand ${input}`, () => {
@@ -91,6 +91,7 @@ describe('Straight RankPredicate', () => {
       { input: '2H 5D AC 4S 3S', output: ['2H 5D AC 4S 3S'] },
       { input: '2H 5D 6C 4S 3S', output: ['2H 5D 6C 4S 3S'] },
       { input: '2H 5H 6H 4H 3H', output: ['2H 5H 6H 4H 3H'] },
+      { input: 'KC TD JD QS AS', output: ['KC TD JD QS AS'] },
       { input: '2C 3D 5D 4C 6S AS', output: ['2C 3D 5D 4C 6S', '2C 3D 5D 4C AS'] },
     ].forEach(({ input, output }) => {
 

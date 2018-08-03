@@ -1,6 +1,7 @@
 import { Card, Value } from '@model/card';
 import { SortableHand, SortedHand } from '@model/sorted-hand';
 import { RankPredicate } from '@service/rank/predicate/rank-predicate';
+import { valueIndex } from '@service/rank/sort/value-sorter';
 
 export class Straight implements RankPredicate {
 
@@ -22,7 +23,9 @@ export class Straight implements RankPredicate {
     let ranked: Card[] = [];
     let last: number;
     cards.some(card => {
-      if (!last || last - 1 !== card.value
+      if (last === card.value) {
+        // Ignore duplicate card
+      } else if (!last || last - 1 !== card.value
         || last === 2 && card.value !== Value.Ace
       ) {
         ranked = [card];
@@ -33,7 +36,7 @@ export class Straight implements RankPredicate {
           ranked = ranked.slice(1);
         }
       }
-      last = card.value;
+      last = valueIndex(card.value);
       return hands.length === max;
     });
     return hands;
